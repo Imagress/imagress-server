@@ -1,6 +1,5 @@
 import { ConvertInput, FileFormat } from './type'
 import Sharp from 'sharp'
-import { omit } from 'lodash'
 
 export async function convert(input: ConvertInput) {
   const extractText = /data:image\/(.*);base64,.*/.exec(input.image)
@@ -15,13 +14,25 @@ export async function convert(input: ConvertInput) {
   let image = await Sharp(buffer)
   image = format(image, outputFileFormat)
 
-  if (input.flip) {
-    if (input.flip.x) {
+  const { flip, rotate, resize } = input
+
+  if (flip) {
+    if (flip.x) {
       image = image.flop()
     }
-    if (input.flip.y) {
+    if (flip.y) {
       image = image.flip()
     }
+  }
+
+  if (rotate) {
+    image = image.rotate(rotate.angle)
+  }
+
+  if (resize) {
+    image = image.resize(resize.width, resize.height, {
+      fit: resize.fit,
+    })
   }
 
   const imageBuffer = await image.toBuffer()
