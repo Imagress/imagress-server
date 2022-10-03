@@ -6,6 +6,7 @@ export default function Test() {
   const [outputImage, setOutputImage] = useState<string | null>()
   const [flipX, setFlipX] = useState(false)
   const [flipY, setFlipY] = useState(false)
+  const [angle, setAngle] = useState(0)
   return (
     <div>
       <div>Test Image Uploader</div>
@@ -26,6 +27,12 @@ export default function Test() {
 
       <input type="checkbox" checked={flipY} onChange={e => setFlipY(!flipY)} />
       <label>Flip Y</label>
+      <label>Rotate</label>
+      <input
+        type="number"
+        value={angle}
+        onChange={e => setAngle(parseInt(e.target.value))}
+      />
       <button
         onClick={async () => {
           const response = await fetch(`${BASE_PATH_SEVER}/convert`, {
@@ -35,10 +42,13 @@ export default function Test() {
             },
             body: JSON.stringify({
               image: inputImage,
-              flip: {
-                x: flipX,
-                y: flipY,
-              },
+              ...((flipX || flipY) && {
+                flip: {
+                  x: flipX,
+                  y: flipY,
+                },
+              }),
+              ...(angle !== 0 && { rotate: { angle } }),
             }),
           })
 
