@@ -26,7 +26,7 @@ export async function convert(input: ConvertInput) {
   }
 
   if (rotate) {
-    image = image.rotate(rotate.angle)
+    image = image.rotate(rotate.angle, { background: '#fff' })
   }
 
   if (resize) {
