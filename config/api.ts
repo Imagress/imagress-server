@@ -1,0 +1,1 @@
+export const BASE_PATH_SEVER = 'https://api.imagress.com'

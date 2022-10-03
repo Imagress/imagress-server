@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { BASE_PATH_SEVER } from '../config/api'
 
 export default function Test() {
   const [inputImage, setInputImage] = useState<string | ArrayBuffer | null>()
@@ -27,9 +28,7 @@ export default function Test() {
       <label>Flip Y</label>
       <button
         onClick={async () => {
-          console.log(flipX)
-
-          const response = await fetch('http://localhost:3000/convert', {
+          const response = await fetch(`${BASE_PATH_SEVER}/convert`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
