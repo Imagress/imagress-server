@@ -1,1 +1,1 @@
-export const BASE_PATH_SEVER = 'https://api.imagress.com'
+export const BASE_PATH_SEVER = process.env.NEXT_PUBLIC_BASE_PATH_SEVER
