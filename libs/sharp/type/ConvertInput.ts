@@ -1,5 +1,5 @@
-import { FileFormat } from "./FileFormat";
-import { ResizeFit } from "./Resize";
+import { FileFormat } from './FileFormat'
+import { ResizeFit } from './Resize'
 
 export type ConvertInput = {
   image: string
@@ -36,4 +36,8 @@ export type ConvertInput = {
     height?: number
     fit?: ResizeFit
   }
+  tint?: {
+    rgb?: string | Object
+  }
+  greyscale?: boolean
 }

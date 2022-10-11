@@ -24,6 +24,8 @@ export async function convert(input: ConvertInput) {
     flatten,
     negate,
     normalise,
+    tint,
+    greyscale,
   } = input
 
   image = flipImage(image, flip)
@@ -35,6 +37,8 @@ export async function convert(input: ConvertInput) {
   image = flattenImage(image, flatten)
   image = negateImage(image, negate)
   image = normaliseImage(image, normalise)
+  image = tintImage(image, tint)
+  image = greyscaleImage(image, greyscale)
 
   const imageBuffer = await image.toBuffer()
   return { image: imageBuffer.toString('base64'), format: outputFileFormat }
@@ -126,6 +130,23 @@ function normaliseImage(
 ) {
   if (normalise) {
     image = image.normalise(normalise)
+  }
+  return image
+}
+
+function tintImage(image: Sharp.Sharp, tint: ConvertInput['tint']) {
+  if (tint && tint.rgb) {
+    image = image.tint(tint.rgb)
+  }
+  return image
+}
+
+function greyscaleImage(
+  image: Sharp.Sharp,
+  greyscale: ConvertInput['greyscale']
+) {
+  if (greyscale) {
+    image = image.greyscale(greyscale)
   }
   return image
 }
