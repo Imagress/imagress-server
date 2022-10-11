@@ -16,24 +16,9 @@ export async function convert(input: ConvertInput) {
 
   const { flip, rotate, resize } = input
 
-  if (flip) {
-    if (flip.x) {
-      image = image.flop()
-    }
-    if (flip.y) {
-      image = image.flip()
-    }
-  }
-
-  if (rotate) {
-    image = image.rotate(rotate.angle, { background: '#fff' })
-  }
-
-  if (resize) {
-    image = image.resize(resize.width, resize.height, {
-      fit: resize.fit,
-    })
-  }
+  image = flipImage(image, flip)
+  image = rotateImage(image, rotate)
+  image = resizeImage(image, resize)
 
   const imageBuffer = await image.toBuffer()
   return { image: imageBuffer.toString('base64'), format: outputFileFormat }
@@ -54,4 +39,32 @@ function format(image: Sharp.Sharp, fileFormat: FileFormat) {
     default:
       return image.jpeg()
   }
+}
+
+function flipImage(image: Sharp.Sharp, flip: ConvertInput['flip']) {
+  if (flip) {
+    if (flip.x) {
+      image = image.flop()
+    }
+    if (flip.y) {
+      image = image.flip()
+    }
+  }
+  return image
+}
+
+function rotateImage(image: Sharp.Sharp, rotate: ConvertInput['rotate']) {
+  if (rotate) {
+    image = image.rotate(rotate.angle, { background: '#fff' })
+  }
+  return image
+}
+
+function resizeImage(image: Sharp.Sharp, resize: ConvertInput['resize']) {
+  if (resize) {
+    image = image.resize(resize.width, resize.height, {
+      fit: resize.fit,
+    })
+  }
+  return image
 }
