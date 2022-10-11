@@ -1,5 +1,5 @@
-import { FileFormat } from "./FileFormat";
-import { ResizeFit } from "./Resize";
+import { FileFormat } from './FileFormat'
+import { ResizeFit } from './Resize'
 
 export type ConvertInput = {
   image: string
@@ -7,12 +7,12 @@ export type ConvertInput = {
   flip?: { x?: boolean; y?: boolean }
   sharpen?: {
     options?: {
-      sigma?: number
-      m1: number
-      m2: number
-      x1: number
-      y2: number
-      y3: number
+      sigma: number
+      m1?: number
+      m2?: number
+      x1?: number
+      y2?: number
+      y3?: number
     }
   }
   median?: {
@@ -36,4 +36,8 @@ export type ConvertInput = {
     height?: number
     fit?: ResizeFit
   }
+  tint?: {
+    rgb?: string | Object
+  }
+  greyscale?: boolean
 }
