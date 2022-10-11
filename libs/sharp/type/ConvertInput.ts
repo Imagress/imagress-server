@@ -7,12 +7,12 @@ export type ConvertInput = {
   flip?: { x?: boolean; y?: boolean }
   sharpen?: {
     options?: {
-      sigma?: number
-      m1: number
-      m2: number
-      x1: number
-      y2: number
-      y3: number
+      sigma: number
+      m1?: number
+      m2?: number
+      x1?: number
+      y2?: number
+      y3?: number
     }
   }
   median?: {
