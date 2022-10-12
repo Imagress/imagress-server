@@ -14,6 +14,7 @@ specifiers:
   lodash: ^4.17.21
   mobx: ^6.6.2
   next: 12.3.1
+  nextjs-cors: ^2.1.1
   react: 18.2.0
   react-dom: 18.2.0
   redoc: ^2.0.0
@@ -27,6 +28,7 @@ dependencies:
   lodash: 4.17.21
   mobx: 6.6.2
   next: 12.3.1_biqbaboplfbrettd7655fr4n2y
+  nextjs-cors: 2.1.1_next@12.3.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   redoc: 2.0.0_nqelvk6jcgjnacj4et5shyupd4
@@ -1556,6 +1558,14 @@ packages:
   /core-js/3.25.5:
     resolution: {integrity: sha512-nbm6eZSjm+ZuBQxCUPQKQCoUEfFOXjUZ8dTTyikyKaWrTYmAVbykQfwsKE5dBK88u3QCkCrzsx/PPlKfhsvgpw==}
     requiresBuild: true
+    dev: false
+
+  /cors/2.8.5:
+    resolution: {integrity: sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==}
+    engines: {node: '>= 0.10'}
+    dependencies:
+      object-assign: 4.1.1
+      vary: 1.1.2
     dev: false
 
   /cross-spawn/7.0.3:
@@ -3377,6 +3387,15 @@ packages:
       - babel-plugin-macros
     dev: false
 
+  /nextjs-cors/2.1.1_next@12.3.1:
+    resolution: {integrity: sha512-HxE4w4Wng5VdTtnn0DWPphuWKwd1Ty+lpyTZ/sQGgaNnd5demYMchKf+W1LtI8YFYxu2HnRb3MrxERRV0QKLKA==}
+    peerDependencies:
+      next: ^8.1.1-canary.54 || ^9.0.0 || ^10.0.0-0 || ^11.0.0 || ^12.0.0
+    dependencies:
+      cors: 2.8.5
+      next: 12.3.1_biqbaboplfbrettd7655fr4n2y
+    dev: false
+
   /node-abi/3.25.0:
     resolution: {integrity: sha512-p+0xx5ruIQ+8X57CRIMxbTZRT7tU0Tjn2C/aAK68AEMrbGsCo6IjnDdPNhEyyjWCT4bRtzomXchYd3sSgk3BJQ==}
     engines: {node: '>=10'}
@@ -4503,6 +4522,11 @@ packages:
       '@types/istanbul-lib-coverage': 2.0.4
       convert-source-map: 1.8.0
     dev: true
+
+  /vary/1.1.2:
+    resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
+    engines: {node: '>= 0.8'}
+    dev: false
 
   /walker/1.0.8:
     resolution: {integrity: sha512-ts/8E8l5b7kY0vlWLewOkDXMmPdLcVV4GmOQLyxuSswIJsweeFZtAsMF7k1Nszz+TYBQrlYRmzOnr398y1JemQ==}
