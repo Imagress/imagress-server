@@ -53,6 +53,7 @@ describe('convert', () => {
     expect(output).toMatchSnapshot()
   })
 
+
   it('edit the sharpen', async () => {
     const input: ConvertInput = {
       image:
@@ -72,6 +73,7 @@ describe('convert', () => {
     expect(output).toMatchSnapshot()
   })
 
+
   it('edit the median', async () => {
     const input: ConvertInput = {
       image:
@@ -84,6 +86,7 @@ describe('convert', () => {
     expect(output).toMatchSnapshot()
   })
 
+
   it('edit the blur', async () => {
     const input: ConvertInput = {
       image:
@@ -95,6 +98,7 @@ describe('convert', () => {
     const output = await convert(input)
     expect(output).toMatchSnapshot()
   })
+
 
   it('edit the flatten', async () => {
     const input: ConvertInput = {
@@ -123,6 +127,7 @@ describe('convert', () => {
     const output = await convert(input)
     expect(output).toMatchSnapshot()
   })
+
 
   it('enable the normalise', async () => {
     const input: ConvertInput = {
@@ -184,6 +189,7 @@ describe('convert', () => {
     expect(output).toMatchSnapshot()
   })
 
+
   it('resize the picture', async () => {
     const input: ConvertInput = {
       image:
@@ -209,6 +215,7 @@ describe('convert', () => {
     const output = await convert(input)
     expect(output).toMatchSnapshot()
   })
+
 
   it('enable the greyscale', async () => {
     const input: ConvertInput = {
