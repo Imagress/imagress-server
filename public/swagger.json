@@ -74,7 +74,8 @@
                           "y3": {"type": "number", "example": 6}
                         }
                       }
-                    }
+                    },
+                    "description": "edit the sharpen"
                   },
                   "median": {
                     "type": "object",
@@ -108,7 +109,8 @@
                           }
                         }
                       }
-                    }
+                    },
+                    "description": "edit the flatten"
                   },
                   "negate": {
                     "type": "object",
@@ -122,15 +124,17 @@
                           }
                         }
                       }
-                    }
+                    },
+                    "description": "enable the nagate"
                   },
                   "normalise": {
                     "type": "boolean",
-                    "example": true
+                    "example": true,
+                    "description": "enable the normalise"
                   },
                   "format": {
                     "$ref": "#/components/schemas/FileFormat",
-                    "description": "Convert file format"
+                    "description": "convert file format"
                   },
                   "resize": {
                     "type": "object",
@@ -147,7 +151,8 @@
                         "type": "string",
                         "enum": ["cover" , "contain" , "fill" , "inside" , "outside"]
                       }
-                    }
+                    },
+                    "description": "resize the picture"
                   },
                   "tint": {
                     "type": "object",
@@ -156,11 +161,13 @@
                         "type": "string",
                         "example": "#111"
                       }
-                    }
+                    },
+                    "description": "edit the tint"
                   },
                   "greyscale": {
                     "type": "boolean",
-                    "example": true
+                    "example": true,
+                    "description": "enable the greyscale"
                   }
                 }
               }
