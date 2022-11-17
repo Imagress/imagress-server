@@ -57,10 +57,110 @@
                         "type": "boolean",
                         "example": true
                       }
+                    },
+                    "description": "flip the picture"
+                  },
+                  "sharpen": {
+                    "type": "object",
+                    "properties": {
+                      "options": {
+                        "type": "object",
+                        "properties":{
+                          "sigma": {"type": "number", "example": 2},
+                          "m1": {"type": "number", "example": 6},
+                          "m2": {"type": "number", "example": 2},
+                          "x1": {"type": "number", "example": 7},
+                          "y2": {"type": "number", "example": 4},
+                          "y3": {"type": "number", "example": 6}
+                        }
+                      }
                     }
                   },
+                  "median": {
+                    "type": "object",
+                    "properties": {
+                      "size": {
+                        "type": "number",
+                        "example": 50
+                      }
+                    },
+                    "description": "edit the median"
+                  },
+                  "blur": {
+                    "type": "object",
+                    "properties": {
+                      "sigma": {
+                        "type": "number",
+                        "example": 24
+                      }
+                    },
+                    "description": "edit the blur"
+                  },
+                  "flatten": {
+                    "type": "object",
+                    "properties": {
+                      "options": {
+                        "type": "object",
+                        "properties": {
+                          "background": {
+                            "type": "string",
+                            "example": "#000"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "negate": {
+                    "type": "object",
+                    "properties": {
+                      "options": {
+                        "type": "object",
+                        "properties": {
+                          "alpha": {
+                            "type": "boolean",
+                            "example": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "normalise": {
+                    "type": "boolean",
+                    "example": true
+                  },
                   "format": {
-                    "$ref": "#/components/schemas/FileFormat"
+                    "$ref": "#/components/schemas/FileFormat",
+                    "description": "Convert file format"
+                  },
+                  "resize": {
+                    "type": "object",
+                    "properties": {
+                      "width": {
+                        "type": "number",
+                        "example": 100
+                      },
+                      "height": {
+                        "type": "number",
+                        "example": 100
+                      },
+                      "fit": {
+                        "type": "string",
+                        "enum": ["cover" , "contain" , "fill" , "inside" , "outside"]
+                      }
+                    }
+                  },
+                  "tint": {
+                    "type": "object",
+                    "properties": {
+                      "rgb": {
+                        "type": "string",
+                        "example": "#111"
+                      }
+                    }
+                  },
+                  "greyscale": {
+                    "type": "boolean",
+                    "example": true
                   }
                 }
               }
