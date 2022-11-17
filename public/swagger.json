@@ -132,10 +132,6 @@
                     "example": true,
                     "description": "enable the normalise"
                   },
-                  "normalise": {
-                    "type": "boolean",
-                    "example": true
-                  },
                   "format": {
                     "$ref": "#/components/schemas/FileFormat",
                     "description": "convert file format"
